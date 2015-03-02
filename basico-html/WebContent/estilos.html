@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style>
+		/* Selectores de etiqueta/elemento */
+		h1 {
+			text-align:center;
+			color: darkgrey;
+		}
+		
+		p {
+			text-align: right;
+		}		
+		
+		h1 span {
+			color: red;
+		}
+		
+		/* Selectores de clase */
+		.tabla-centrada {
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		.tabla-con-borde, .tabla-con-borde td { /* A la tabla y a cada td dentro de ella */
+			border: 1px solid black;
+		}
+		
+		.tabla-con-borde {
+			border: 2px dashed blue;
+		}
+		
+		/* Selectores de id */
+		#tabla1 {
+			width: 200px;
+		}
+		
+		/* Pseudo-selectores */
+		#tabla1 tr:first-child {
+			background-color: grey;
+		}
+		
+		#tabla1 tr:nth-child(2) {
+			background-color: navy;
+		}
+		
+		#tabla1 tr:last-child td {
+			color: red;
+		}
+		
+		.tabla-con-colores tr:nth-child(odd) {
+			background-color: lightgreen;
+		}
+		
+		.tabla-con-colores tr:nth-child(even) {
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<h1>Ejemplo básico de estilos <span>Hola</span></h1>
+	<p>Este es un ejemplo básico de estilos</p>
+	<table id="tabla1" class="tabla-centrada tabla-con-borde">
+		<tr><td>Uno</td></tr>
+		<tr><td>Dos</td></tr>
+		<tr><td>Tres</td></tr>
+	</table>
+	<table class="tabla-con-borde tabla-con-colores tabla-centrada">
+		<tr><td>Hola</td></tr>
+		<tr><td>Bienvenido</td></tr>
+		<tr><td>Adiós</td></tr>
+		<tr><td>Hasta luego</td></tr>
+	</table>
+</body>
+</html>
