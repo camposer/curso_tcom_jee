@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Personas</title>
+	<script src="js/PersonaUtil-json.js"></script>
+	<script>
+		var miToString = function() {
+			return "[ id = " + this.id + 
+				", nombre = " + this.nombre + 
+				", apellido = " + this.apellido + 
+				", fechaNacimiento = " + this.fechaNacimiento + 
+				", sexo = " + this.sexo + " ]";
+		};
+	
+		var imprimir = function(personas) {
+			for (var i in personas)
+				document.writeln(personas[i] + "<br>");
+
+			document.writeln("<br>");
+		};
+		
+		var personaUtil = new PersonaUtil();
+		
+		// Agregando
+		var p1 = {
+			nombre: "Juan",
+			apellido: "Pérez",
+		};
+		p1.fechaNacimiento = new Date(1990, 12, 12);
+		p1.sexo = "M";
+		p1.toString = miToString; 
+		personaUtil.agregar(p1);
+
+		var p2 = {
+			nombre: "María",
+			apellido: "García",
+			fechaNacimiento: new Date(1980, 12, 01),
+			sexo: "F",				
+			toString: miToString
+		};
+		personaUtil.agregar(p2);
+		
+		personaUtil.agregar({
+			nombre: "Pedro", 
+			apellido: "González", 
+			fechaNacimiento: new Date(1999, 11, 01), 
+			sexo: "M",
+			toString: miToString
+		});
+		imprimir(personaUtil.obtenerTodos());
+
+		// Modificando
+		personaUtil.modificar({
+			id: 1,
+			nombre: "Juanito",
+			apellido: "Pérez",
+			fechaNacimiento: new Date(1999, 11, 01), 
+			sexo: "M",
+			toString: miToString
+		});
+		imprimir(personaUtil.obtenerTodos());
+	
+		// Modificando
+		personaUtil.eliminar(1);
+		imprimir(personaUtil.obtenerTodos());
+
+		// Obtener uno
+		imprimir([ personaUtil.obtener(2) ]);
+	</script>
+</head>
+<body>
+
+</body>
+</html>
