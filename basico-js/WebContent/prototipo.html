@@ -1,0 +1,31 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<script>
+		function Persona() {
+			this.reir = function() { document.writeln("Riendo"); }; 
+			this.llorar = function() { document.writeln("Llorando"); }; 
+		}
+		
+		var p1 = new Persona();
+		p1.reir(); // => Riendo
+		p1.caminar = function() { // Método virtual
+			document.writeln("Caminando");
+		};
+		Persona.prototype.respirar = function() { // Método de prototipo
+			document.writeln("Respirando");
+		};
+		p1.caminar();
+		p1.respirar();
+		
+		var p2 = new Persona();
+		p2.respirar();
+		//p2.caminar(); // Falla!!
+		
+	</script>
+</head>
+
+<body>
+
+</body>
+</html>

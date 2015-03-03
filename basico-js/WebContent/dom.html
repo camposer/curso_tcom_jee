@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>DOM</title>
+	<script>
+		var numeros = [ "Uno", "Dos", "Tres" ];
+		
+		var imprimirTabla1 = function() { // ver: JsRender
+			var tabla1 = document.getElementById("tabla1");
+			var html = "<table border='1'>";
+			
+			for (var i in numeros) 
+				html += "<tr><td>" + numeros[i] + "</td></tr>";
+				
+			html += "</table>"; 
+			tabla1.innerHTML = html
+		};
+
+		var imprimirTabla2 = function() {
+			var tabla2 = document.getElementById("tabla2");
+			var table = document.createElement("table");
+			table.setAttribute("border", "1");
+			for (var i in numeros) {
+				var tr = document.createElement("tr");
+				var td = document.createElement("td");
+				td.innerHTML = numeros[i];
+				tr.appendChild(td);
+				table.appendChild(tr);
+			}			
+			tabla2.appendChild(table);
+		};
+	</script>
+</head>
+<body>
+	<h1>Ejemplo DOM</h1>
+	<table border="1">
+		<tr><td>Uno</td></tr>
+		<tr><td>Dos</td></tr>
+		<tr><td>Tres</td></tr>
+	</table>
+	<input type="button" value="clic" onclick="imprimirTabla1();imprimirTabla2()">
+	<input type="button" value="alert" onclick="window.alert('hola')">
+	<hr>
+	<div id="tabla1"></div>
+	<hr>
+	<div id="tabla2"></div>
+</body>
+</html>
+
+
+
+
