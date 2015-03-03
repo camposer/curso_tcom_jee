@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Personas</title>
+	<script src="js/Persona.js"></script>
+	<script src="js/PersonaUtil.js"></script>
+	<script>
+		var imprimir = function(personas) {
+			for (var i in personas)
+				document.writeln(personas[i] + "<br>");
+
+			document.writeln("<br>");
+		};
+		
+		var personaUtil = new PersonaUtil();
+		
+		// Agregando
+		personaUtil.agregar(new Persona("Juan", "Pérez", new Date(1990, 12, 12), "M"));
+		personaUtil.agregar(new Persona("María", "García", new Date(1980, 12, 01), "F"));
+		personaUtil.agregar(new Persona("Pedro", "González", new Date(1999, 11, 01), "F"));
+		imprimir(personaUtil.obtenerTodos());
+
+		// Modificando
+		var p = new Persona("Juanito", "Pérez", new Date(1989, 12, 12), "M");
+		p.setId(1);
+		personaUtil.modificar(p);
+		imprimir(personaUtil.obtenerTodos());
+	
+		// Modificando
+		personaUtil.eliminar(1);
+		imprimir(personaUtil.obtenerTodos());
+
+		// Obtener uno
+		imprimir([ personaUtil.obtener(2) ]);
+	</script>
+</head>
+<body>
+
+</body>
+</html>
