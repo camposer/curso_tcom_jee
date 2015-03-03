@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Objetos con JSON</title>
+	<script>
+		// JSON = JavaScript Object Notation
+		var miToString = function() {
+			return "[ nombre = " + this.nombre + 
+	          ", apellido = " + this.apellido +
+	          ", edad = " + this.edad + "]";
+		};
+		
+		var p1 = {
+			nombre: "Juan",
+			"apellido": "Pérez",
+			edad: 30,
+			"y esta tambien es propiedad": "cualquier cosa",
+			toString: function() {
+				return "[ nombre = " + this.nombre + 
+				          ", apellido = " + this.apellido +
+				          ", edad = " + this.edad + "]";
+			}
+		};
+		
+		var p2 = {
+			nombre: "María",
+			apellido: "García",
+			edad: 20,
+			toString: miToString
+		};
+		
+		var p3 = {
+			nombre: "Pedro",
+			apellido: "González",
+			edad: 25,
+			toString: miToString
+		};
+
+		document.writeln("nombre = " + p1.nombre  + "<br>");
+		document.writeln(p1["y esta tambien es propiedad"]  + "<br>");
+		document.writeln(p1 + "<br>");
+		document.writeln(p2 + "<br>");
+		document.writeln(p3 + "<br>");
+	</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+

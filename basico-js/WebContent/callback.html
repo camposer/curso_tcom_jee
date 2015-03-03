@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Callbacks</title>
+	<script>
+		var holaMundo = function(mensaje, llamamePaTras) {
+			llamamePaTras("Hola " + mensaje);
+		};
+		
+		var imprimir1 = function(mensaje) {
+			document.writeln("imprimir1: " + mensaje);
+		};
+	
+		var imprimir2 = function(mensaje) {
+			document.writeln("imprimir2: " + mensaje);
+		};
+
+		holaMundo("Juan", imprimir1); // => imprimir1: Hola Juan
+		holaMundo("Pedro", imprimir2); // => imprimir2: Hola Pedro
+	</script>
+</head>
+<body>
+
+</body>
+</html>

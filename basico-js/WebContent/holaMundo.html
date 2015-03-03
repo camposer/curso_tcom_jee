@@ -4,11 +4,27 @@
 	<meta charset="UTF-8">
 	<title>Hola Mundo JS</title><!-- Esto es un comentario -->
 	<script>
-		function holaMundo() {
-			document.writeln("Hola mundo");
+		var nombre = "Juan";
+		var a = 2;
+		var b = 3;
+		
+		function holaMundo(nombre) {
+			document.writeln("Hola mundo " + nombre + "<br>");
 		}
-	
-		holaMundo();
+		
+		function sumar(a, b) {
+			return a + b;
+		}
+
+		var multiplicar = function(a, b) {
+			return a * b;
+		};
+		
+		holaMundo(nombre);
+		document.writeln(a + " + "  + b + " = " + sumar(a, b));
+		document.writeln("<br>");
+		document.writeln(a + " * "  + b + " = " + multiplicar(a, b));
+		document.writeln("<br>");
 	</script>
 </head>
 <body>

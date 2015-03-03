@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Clases</title>
+	<script>
+		function Persona(nom, _apellido, _edad) {
+			var nombre = nom;
+			var apellido = _apellido; // != this.apellido
+			var edad = _edad;
+			
+			this.altura = 1.8;
+			this.setNombre = function(n) { nombre = n; };
+			this.getNombre = function() { 
+				return nombre; 
+			};
+			this.setApellido = function(a) { apellido = a; };
+			this.getApellido = function() { return apellido; };
+			this.setEdad = function(e) { edad = e; };
+			this.getEdad = function() { return edad; };
+			this.toString = function() {
+				return "[ nombre = " + this.getNombre() + 
+				          ", apellido = " + apellido +
+				          ", altura = " + this.altura + 
+				          ", edad = " + this.getEdad() + " ]";
+			};
+		}
+		
+		var p1 = new Persona("Juan", "Pérez", 30);
+		document.writeln("nombre = " + p1.getNombre() + "<br>");
+		document.writeln("altura = " + p1.altura + "<br>");
+		document.writeln("edad = " + p1.edad + "<br>");
+		document.writeln(p1 + "<br>");
+		
+		var p2 = new Persona("María", "García", 20);
+		
+		var personas = [ p1, p2 ];
+		for (var i in personas) 
+			document.writeln(i + ". " + personas[i] + "<br>");
+		
+	
+	</script>
+</head>
+<body>
+
+</body>
+</html>
