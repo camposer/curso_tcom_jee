@@ -29,19 +29,18 @@ public class ProcesarFormServlet extends HttpServlet {
 		if (instrumentos == null || instrumentos.length <= 0)
 			throw new ServletException("Instrumentos inválidos");
 		
-		// Pasando atributos al servlet que imprime
+		// Procesando instrumentos
 		List<String> listaInstrumentos = new ArrayList<String>();
-		if (request.getParameterValues("instrumento") != null) {
-			for (String i : request.getParameterValues("instrumento")) {
-				Integer index = Integer.parseInt(i);
-				listaInstrumentos.add(InstrumentoTipo.getTipo(index).name());
-			}
+		for (String i : instrumentos) {
+			Integer index = Integer.parseInt(i);
+			listaInstrumentos.add(InstrumentoTipo.getTipo(index).name());
 		}
 		
+		// Pasando atributos al servlet que imprime
 		request.setAttribute("nombre", nombre);
 		request.setAttribute("instrumentos", listaInstrumentos);
 
-		// Imprimiendo datos del cliente
+		// Imprimiendo datos del músico
 		getServletContext()
 			.getRequestDispatcher("/ImprimirForm")
 			.forward(request, response);
