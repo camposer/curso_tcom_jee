@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,8 +17,8 @@ public class ImprimirFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
-		String nombre = request.getParameter("nombre");
+		String nombre = (String)request.getAttribute("nombre");
+		List<String> instrumentos = (List<String>)request.getAttribute("instrumentos");
 		
 		response.setCharacterEncoding("utf-8"); // Por defecto escribe en ISO!!
 		PrintWriter pw = response.getWriter();
@@ -29,11 +30,8 @@ public class ImprimirFormServlet extends HttpServlet {
 		pw.println("Cántame una canción " + nombre);
 		pw.println(". Utilizando:<br>");
 
-		String[] instrumentos = request.getParameterValues("instrumento");
-		for (String i : instrumentos) {
-			int index = Integer.parseInt(i);
-			pw.println(InstrumentoTipo.getTipo(index) + "<br>");
-		}
+		for (String i : instrumentos) 
+			pw.println(i + "<br>");
 			
 		pw.println("</body>");
 		pw.println("</html>");
